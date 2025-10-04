@@ -400,7 +400,6 @@ p{
 }
 
 .projContent {
-  min-width: 20em;
   max-width: 50em;
   margin-bottom: 3em;
   margin: 2em;
@@ -517,7 +516,7 @@ p{
   color: var(--primary);
   margin-left: 4em;
   margin-top: 2em;
-  padding: 1em;
+  padding: 0.5em 1em;
   max-width: 60em;
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
@@ -534,6 +533,12 @@ p{
 .timeline-content ul {
   padding-left: 1.2em;
 }
+
+.timeline-content {
+  padding-left: 0.5em;
+}
+
+
 
 
 /* CONTACT SECTION */
@@ -734,8 +739,9 @@ footer {
   }
 
   .projContent {
+    margin-left: 0px;
     width: 100%;
-    margin: 0 1rem;
+    margin: 1rem;
   }
 
   .emailS {
@@ -747,6 +753,32 @@ footer {
     padding: 0rem;
     margin: 0;
     }
+
+  .menu {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  
+}
+.menu{
+  margin-top: 2em;
+}
+
+.menu a{
+  font-size: 10px;
+}
+
+.menu a {
+  color: var(--white);
+  text-decoration: none;
+  position: relative;
+  transition: 0.3s;
+  background-color: #010929;
+  border: 3px solid #010929;
+  border-radius: 13px;
+}
+
   .details p{
   color: var(--primary);
   }
@@ -759,13 +791,7 @@ footer {
   margin-left: 5rem;
   margin-bottom: 6em;
 }
-.menu{
-  margin-top: 2em;
-}
 
-.menu a{
-  font-size: 10px;
-}
 
 p{
   font-size: 15px;
@@ -863,6 +889,23 @@ p{
   width: 100vw;
 }
 
+.project {
+  margin-bottom: 6em;
+  margin-left: 0em;
+  padding: 1rem;
+  border-radius: 10px;
+  flex: 1 1 300px;
+  color: #1A1A1A;
+}
+
+.projContent {
+  max-width: 17em;
+  min-width: 13em;
+  margin-bottom: 3em;
+  margin: 0em;
+  padding: 1rem;
+}
+
 /*EDUCATION*/
 
 .EdContent{
@@ -943,11 +986,12 @@ p{
 /* TIMELINE CONTAINER */
 .timeline {
   position: relative;
-  margin: 2em 3em;
-  padding-left: rem;
   border-left: 3px solid var(--accent);
-  left: -80px;
+  left: -30px;
+  
 }
+
+
 
 /* TIMELINE ITEM */
 .timeline-item {
@@ -975,19 +1019,21 @@ p{
   font-weight: bold;
   color: var(--accent);
   margin-bottom: 0.3em;
-  margin-left: 0px;
   top: 1em;
 }
 
 /* CONTENT STYLING */
 .timeline-content {
+  text-align: start;
   background-color: var(--accent);
   color: var(--primary);
+  margin-right: 0;
   margin-left: 0px;
-  margin-top: 2em;
+  margin-top: 0em;
   padding: 1em;
   max-width: 20em;
-  min-width: 20em;
+  min-width: 14em;
+  height: auto;
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
@@ -1003,9 +1049,16 @@ p{
 }
 
 .timeline-content ul {
-  padding-left: em;
+  padding-left: 0em;
+}
+
+.timeline-content ul,
+.timeline-content p,
+.timeline-content h3
+{
+  margin-left: 0;
+  padding-left: 0;
 }
 
 
 }
-
