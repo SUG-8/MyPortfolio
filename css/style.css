@@ -37,13 +37,7 @@ hr {
   margin-left:2em ;
 }
 
-.certline {
-  border: none;
-  border-top: 3.5px solid var(--accent);
-  margin: 20px 0;
-  width: 10em;
-  margin-left: 2rem;
-}
+
 
 .socialsLine {
   border: none;
@@ -720,10 +714,14 @@ footer {
   }
   
 
-  .certline{
-    width: 10em;
-    margin: 0 auto;
-  }
+  .certline {
+  display: block;
+  width: 10em;
+  margin: 20px auto !important;/*!important ovverides the rest*/
+  border: none;
+  border-top: 3.5px solid var(--accent);
+}
+
 
   h2{
     text-align: center;
@@ -750,9 +748,14 @@ footer {
   }
 
   header {
-    padding: 0rem;
-    margin: 0;
-    }
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;        /*  match viewport width */
+  overflow-x: hidden;  /*  prevent sideways scrolling */
+  box-sizing: border-box;
+}
+
 
   .menu {
   display: flex;
@@ -761,12 +764,19 @@ footer {
   align-items: center;
   
 }
-.menu{
-  margin-top: 2em;
+.menu {
+  display: flex;
+  flex-wrap: wrap;       /*  allows items to wrap */
+  justify-content: center;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.5rem;
 }
 
-.menu a{
+.menu a {
   font-size: 10px;
+  padding: 0.3rem 0.7rem;
+  white-space: nowrap;   /* keeps text on one line */
 }
 
 .menu a {
@@ -927,8 +937,9 @@ p{
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 6.5rem;
+  margin: 0 ;
 }
+
 
 #contact hr{
   width: 23.5rem;
@@ -946,16 +957,33 @@ p{
   height: auto;
 }
 
-.emailS {
+
+.form {
+  background: var(--light-grey);
+  padding: 2rem;
+  border-radius: 20px; 
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.15);
+  max-width: 400px;     
+  width: 90%;           
+  margin: 3rem auto;    
+  color: var(--primary);
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 4em;
-  width: 15rem;
-  max-width: 100%;
-  margin: 0 auto;
-  height: auto;
-  max-height: auto;
 }
+
+/* make sure the wrapper (.emailS) centers the form */
+.emailS {
+  display: flex;
+  flex-direction: column; 
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  margin: 0 auto;
+}
+
 
 .emailp{
   color: var(--primary);
@@ -1032,7 +1060,7 @@ p{
   margin-top: 0em;
   padding: 1em;
   max-width: 20em;
-  min-width: 14em;
+  min-width: 18em;
   height: auto;
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
@@ -1061,4 +1089,226 @@ p{
 }
 
 
+
+
+}
+
+
+
+/* Large laptops / smaller desktops */
+@media (max-width: 1200px) {
+  /* background fixed causes issues on some larger tablets; keep it but ensure sizing */
+  
+
+  header { padding: 1.5rem; }
+
+  .hero-section h1 { font-size: 3rem; }
+  .hero-section h3 { font-size: 2.1rem; }
+  .hero-section p { font-size: 1.25rem; }
+
+  .view, .contact { width: 13em; height: auto; padding: 0.6rem 1.25rem; }
+
+  .Experience { margin-left: 2em; max-width: 48em; }
+
+  #projects img { width: 16em; }
+
+  .certificate-img img { width: 180px; }
+
+  
+  
+
+  .emailS { gap: 6em; }
+
+  .contain { margin-right: 30px; }
+}
+
+/* Small laptops / tablets in landscape */
+@media (max-width: 992px) {
+  header { padding: 1rem 1.25rem; }
+
+  .menu a { border-width: 5px; padding: 0.4rem 0.9rem; }
+
+  .hero-section { margin-top: 5.5rem; }
+  .hero-section h1 { font-size: 2.6rem; }
+  .hero-section h3 { font-size: 1.9rem; }
+  
+  
+
+  .aboutContent { max-width: 700px; margin: 1rem; }
+
+  .projContent { max-width: 36em; }
+
+  #projects h2 { font-size: 3rem; }
+
+  .emailS { gap: 4em; }
+
+  .timeline { max-width: 48em; }
+  .timeline-content { max-width: 40em; }
+}
+
+/* Tablet / large phones (portrait) */
+@media (max-width: 768px) {
+  
+  
+
+  .menu a {
+    border-width: 3px;
+    padding: 0.35rem 0.7rem;
+    font-size: 0.95rem;
+  }
+
+  .hero-section {
+    margin-top: 5rem;
+    padding: 0 1rem;
+  }
+
+  .hero-section h1 { font-size: 2.2rem; }
+  .hero-section h3 { font-size: 1.6rem; }
+  .hero-section p { font-size: 1rem; max-width: 90%; }
+
+  .view, .contact {
+    width: 12em;
+    height: auto;
+    padding: 0.6rem 1rem;
+  }
+
+  /* center long left-margined blocks that break on smaller widths */
+  .Experience {
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 3rem;
+    max-width: 90%;
+  }
+  .experienceLinks {
+    margin-left: 0;
+    justify-content: center;
+  }
+
+  .projContent { margin-left: 0; max-width: 95%; }
+  .project { margin-left: 0; }
+
+  #projects img { width: 14em; }
+
+  /* certificates and images scale down */
+  .certificate-img img { width: 150px; }
+  .certificate-img { max-width: 160px; }
+  
+
+  /* stack form & image */
+  .emailS { flex-direction: column; gap: 2rem; width: 100%; max-width: 360px;  margin:3rem auto; margin-top:  2rem; justify-content: center; align-items: center; }
+  .form { margin-top: 6rem; max-width: 360px; width: 95%;  }
+  .form input, .form textarea{max-width: 300px; margin: 0 auto !important;}
+  .form button{max-width: 100px !important;}
+
+  .contain { margin: 1rem auto; gap: 1.5rem; margin-right: 0; }
+
+  /* timeline tweaks */
+  .timeline { margin-left: 0.5rem; padding-left: 1.25rem; }
+  .timeline-item::before { left: -28px; }
+  .timeline-content { margin-left: 1rem; max-width: calc(100% - 2rem); min-width: unset; }
+
+  /* hide/scale large decorative images */
+  .FunImg img { display: none; }
+}
+
+/* Small phones */
+@media (max-width: 576px) {
+  .menu { gap: 0.5rem; }
+  
+  .menu a { font-size: 0.85rem; border-width: 3px; padding: 0.25rem 0.6rem; }
+
+  .hero-section h1 { font-size: 1.8rem; margin-top: 2.5rem; }
+  .hero-section h3 { font-size: 1.3rem; margin-top: 0.5rem; }
+  .hero-section p { font-size: 0.95rem; }
+
+  .view, .contact {
+    width: 100%;
+    max-width: 16rem;
+    height: auto;
+    padding: 0.65rem 1rem;
+  }
+
+  p, .about p { font-size: 15px; }
+
+  .about hr, .certline { width: 10em; margin-left: 0; }
+
+  .projContent { max-width: 18em; padding: 0.6rem; }
+  .project { margin-bottom: 3rem; }
+
+  .certificate-img img { width: 120px; border-radius: 12px; }
+
+  .contain { margin: 0.5rem auto; gap: 1rem; margin-left: 0; }
+
+  #contact hr { width: 95%; }
+
+  .education li { margin-left: 0.5rem; font-size: 18px; }
+  .education p, .education h3, .education h4 { margin-left: 0.5rem; }
+
+  .timeline { left: 0; padding-left: 1rem; }
+  .timeline-item::before { left: -32px; }
+  .timeline-content { padding: 0.75rem; max-width: 100%; min-width: unset; }
+
+  /* form tweaks */
+  .form { width: 95%; padding: 1rem; max-width: none; }
+  .form button { width: 100%; max-width: none; }
+
+  .emailp { font-size: 0.95rem; }
+
+  /* make social lines centered on narrow screens */
+  .socialsLine { margin-left: 0; width: 90%; }
+
+  /* keep header smaller */
+  header { padding: 0.5rem 0.75rem; }
+}
+
+/* Very small phones / old devices */
+@media (max-width: 420px) {
+  body { font-size: 14px; }
+
+  .hero-section h1 { font-size: 1.6rem; }
+  .hero-section h3 { font-size: 1.1rem; }
+  .hero-section p { font-size: 0.9rem; }
+
+  .menu a { padding: 0.2rem 0.45rem; font-size: 0.8rem; }
+
+  .view, .contact { padding: 0.5rem 0.9rem; height: auto; font-size: 0.95rem; width: 100%; }
+
+  .certificate-img img { width: 110px; }
+  #projects img { width: 11em; }
+  
+
+  .aboutContent { padding: 0.5rem; margin: 0.5rem; }
+
+  .timeline-content h3 { font-size: 16px; }
+  .timeline-content li { font-size: 14px; }
+
+  .contain { margin-left: 0; gap: 0.75rem; }
+
+  .EdContent { margin-left: 0; margin-top: 1.5rem; }
+  .education h3 { margin-left: 0; font-size: 20px; }
+}
+
+/* Tiny phones */
+@media (max-width: 360px) {
+  .hero-section h1 { font-size: 1.4rem; }
+  .hero-section h3 { font-size: 1rem; }
+  .hero-section p { font-size: 0.85rem; }
+
+  
+
+  .menu a { font-size: 0.75rem; padding: 0.15rem 0.4rem; border-width: 2px; }
+
+  .project { padding: 0.75rem; margin: 1rem 0.5rem; }
+  .projContent { margin: 0.5rem; padding: 0.75rem; max-width: 14rem; }
+
+  .form p { font-size: 12px; }
+  .form h2 { font-size: 16px; }
+  .form input, .form textarea { padding: 8px; font-size: 13px; }
+
+  .certificate-img img { width: 95px; }
+
+  /* remove large left margins that would push content off-screen */
+  h2 { margin-left: 0; text-align: center; }
+  .education p { margin-left: 0; }
+  .education li { margin-left: 0; }
 }
